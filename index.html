@@ -2,9 +2,48 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>LIFF Budget</title>
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 </head>
+
 <body>
-  <h2>LIFF 測試成功 🎉</h2>
+  <h2>💰 預算設定</h2>
+
+  餐飲：<input id="food"><br>
+  交通：<input id="transport"><br>
+  娛樂：<input id="fun"><br>
+
+  <button onclick="send()">送出</button>
+
+  <script>
+    let profile;
+
+    async function init() {
+      await liff.init({ liffId: "YOUR_LIFF_ID" });
+
+      if (!liff.isLoggedIn()) liff.login();
+
+      profile = await liff.getProfile();
+    }
+
+    init();
+
+    async function send() {
+      const data = {
+        user_id: profile.userId,
+        food: food.value,
+        transport: transport.value,
+        fun: fun.value
+      };
+
+      await liff.sendMessages([
+        {
+          type: "text",
+          text: "budget|" + JSON.stringify(data)
+        }
+      ]);
+
+      liff.closeWindow();
+    }
+  </script>
 </body>
 </html>
