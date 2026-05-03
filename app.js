@@ -31,27 +31,30 @@ async function loadCategories() {
 
   categories.forEach(c => {
 
-    // 外層 row
+    // 一列 row
     const row = document.createElement("div");
-    row.style.display = "flex";
-    row.style.alignItems = "center";
-    row.style.marginBottom = "8px";
-    row.style.gap = "10px";
+    row.className = "row align-items-center mb-2";
 
-    // 類別文字
-    const label = document.createElement("div");
-    label.innerText = c;
-    label.style.width = "120px"; // 固定寬度，對齊用
+    // 左邊：類別
+    const labelCol = document.createElement("div");
+    labelCol.className = "col-4";
+    labelCol.innerText = c;
 
-    // 輸入框
+    // 右邊：輸入框
+    const inputCol = document.createElement("div");
+    inputCol.className = "col-8";
+
     const input = document.createElement("input");
-    input.id = c;
     input.type = "number";
+    input.id = c;
+    input.className = "form-control";
     input.placeholder = "輸入金額";
 
+    inputCol.appendChild(input);
+
     // 組合
-    row.appendChild(label);
-    row.appendChild(input);
+    row.appendChild(labelCol);
+    row.appendChild(inputCol);
 
     container.appendChild(row);
   });
