@@ -1,52 +1,40 @@
 body {
   font-family: Arial;
   background: #f4f6f8;
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
+  margin: 0;
 }
 
-.card {
+/* ⭐ 主要卡片 */
+.container {
+  max-width: 500px;
+  margin-top: 30px;
+}
+
+/* ⭐ scroll 區（搭配 Bootstrap row） */
+#form {
+  max-height: 400px;
+  overflow-y: auto;
   background: white;
-  padding: 20px;
-  width: 300px;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-input {
-  width: 100%;
-  padding: 8px;
-  margin: 6px 0 12px 0;
-}
-
-button {
-  width: 100%;
-  padding: 10px;
-  background: #06c755;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #05b14a;
-}
-
-.row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-}
-
-.label {
+/* ⭐ 金額輸入（財報風） */
+.amount-input {
   width: 120px;
-  font-weight: bold;
+  text-align: right;
+  font-family: monospace;
 }
 
-.row input {
-  flex: 1;
-  padding: 6px;
+/* ⭐ 類別文字 */
+.category-label {
+  font-weight: 500;
+}
+
+/* ⭐ 按鈕微調（覆蓋 Bootstrap 主色） */
+button.btn-primary {
+  background: #06c755;
+  border: none;
+}
+
+button.btn-primary:hover {
+  background: #05b14a;
 }
