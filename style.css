@@ -4,32 +4,40 @@ body {
   margin: 0;
 }
 
-/* ⭐ 主要卡片 */
-.container {
+/* ⭐ 不要直接改 bootstrap container，用自訂 class */
+.app-container {
   max-width: 500px;
-  margin-top: 30px;
+  margin: 30px auto;
 }
 
-/* ⭐ scroll 區（搭配 Bootstrap row） */
+/* ⭐ scroll 區 */
 #form {
   max-height: 400px;
   overflow-y: auto;
   background: white;
 }
 
-/* ⭐ 金額輸入（財報風） */
+/* ⭐ 每個欄位卡片對齊 */
+.category-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* ⭐ 金額輸入 */
 .amount-input {
   width: 120px;
   text-align: right;
   font-family: monospace;
 }
 
-/* ⭐ 類別文字 */
+/* ⭐ 類別字 */
 .category-label {
   font-weight: 500;
 }
 
-/* ⭐ 按鈕微調（覆蓋 Bootstrap 主色） */
+/* ⭐ 按鈕 */
 button.btn-primary {
   background: #06c755;
   border: none;
