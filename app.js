@@ -80,7 +80,7 @@ async function submitBudget() {
 
   document.getElementById("status").innerText = "送出中...";
 
-  await fetch("https://https://line-bot-on-render-combine-one.onrender.com/api/budget", {
+  await fetch("https://line-bot-on-render-combine-one.onrender.com/api/budget", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
