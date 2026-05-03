@@ -33,3 +33,20 @@ button {
 button:hover {
   background: #05b14a;
 }
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.label {
+  width: 120px;
+  font-weight: bold;
+}
+
+.row input {
+  flex: 1;
+  padding: 6px;
+}
