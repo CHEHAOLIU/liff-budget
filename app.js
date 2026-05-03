@@ -1,3 +1,4 @@
+console.log("APP JS LOADED");
 // 初始化 LIFF
 async function init() {
   await liff.init({
