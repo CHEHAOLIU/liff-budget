@@ -20,7 +20,7 @@ init();
 //載入分類（關鍵）
 async function loadCategories() {
   const res = await fetch(
-    "https://line-bot-on-render-combine-one.onrender.com/api/categories);
+    "https://line-bot-on-render-combine-one.onrender.com/api/categories");
 
   categories = await res.json();
 
