@@ -14,6 +14,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  flex-wrap: nowrap; /* ⭐⭐ 關鍵：禁止換行 */
 }
 
 /* ⭐ 防止 input 撐爆欄位 */
@@ -26,9 +27,8 @@
 
 /* ⭐ 讓 label 不亂換行 */
 .category-label {
-  font-weight: 500;
-  white-space: nowrap;
+  flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding-right: 8px;
+  white-space: nowrap;
 }
