@@ -1,23 +1,14 @@
-body {
-  font-family: Arial;
-  background: #f4f6f8;
-  margin: 0;
-}
-
-/* ⭐ 不要直接改 bootstrap container，用自訂 class */
 .app-container {
   max-width: 500px;
   margin: 30px auto;
 }
 
-/* ⭐ scroll 區 */
+/* ⭐ 讓 row 正常吃 gutter */
 #form {
-  max-height: 400px;
-  overflow-y: auto;
   background: white;
 }
 
-/* ⭐ 每個欄位卡片對齊 */
+/* ⭐ 每一格變穩定 flex，不影響 grid */
 .category-item {
   display: flex;
   justify-content: space-between;
@@ -25,24 +16,19 @@ body {
   width: 100%;
 }
 
-/* ⭐ 金額輸入 */
+/* ⭐ 防止 input 撐爆欄位 */
 .amount-input {
-  width: 120px;
+  width: 110px;
   text-align: right;
   font-family: monospace;
+  flex-shrink: 0;
 }
 
-/* ⭐ 類別字 */
+/* ⭐ 讓 label 不亂換行 */
 .category-label {
   font-weight: 500;
-}
-
-/* ⭐ 按鈕 */
-button.btn-primary {
-  background: #06c755;
-  border: none;
-}
-
-button.btn-primary:hover {
-  background: #05b14a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 8px;
 }

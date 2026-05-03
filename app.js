@@ -25,7 +25,7 @@ init();
 // ⭐ 載入分類 + 建立 UI（兩欄 + 財報風）
 async function loadCategories() {
 
-  const res = await fetch("https://xxx.onrender.com/api/categories");
+  const res = await fetch("https://line-bot-on-render-combine-one.onrender.com/api/categories");
   categories = await res.json();
 
   const container = document.getElementById("form");
@@ -33,11 +33,11 @@ async function loadCategories() {
 
   categories.forEach(c => {
 
-    // ⭐ Bootstrap col
     const col = document.createElement("div");
-    col.className = "col-6";
 
-    // ⭐ 改成純 flex item（不要再包 row）
+    // ⭐ 關鍵：加 mb + 不讓撐爆
+    col.className = "col-6 mb-2";
+
     const item = document.createElement("div");
     item.className = "category-item";
 
@@ -64,24 +64,6 @@ async function loadCategories() {
     col.appendChild(item);
     container.appendChild(col);
   });
-}
-
-// ⭐ 計算總預算
-function updateTotal() {
-
-  let total = 0;
-
-  categories.forEach(c => {
-    const input = document.getElementById(c);
-    if (!input) return;
-
-    const value = input.value.replace(/,/g, "");
-    if (!isNaN(value) && value !== "") {
-      total += Number(value);
-    }
-  });
-
-  document.getElementById("total").innerText = total.toLocaleString();
 }
 
 
