@@ -11,12 +11,12 @@
 /* ⭐ 每一格變穩定 flex，不影響 grid */
 .category-item {
   display: flex;
+  flex-direction: row;   /* ⭐ 強制橫向 */
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  flex-wrap: nowrap; /* ⭐⭐ 關鍵：禁止換行 */
+  gap: 8px;
 }
-
 /* ⭐ 防止 input 撐爆欄位 */
 .amount-input {
   width: 110px;
