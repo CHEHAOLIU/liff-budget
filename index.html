@@ -1,49 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
+  <title>預算設定</title>
+
+  <!-- LIFF SDK -->
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
+  <!-- 載入你的 JS -->
+  <script src="app.js" defer></script>
+
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+
+    input {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+    }
+  </style>
 </head>
 
 <body>
-  <h2>💰 預算設定</h2>
 
-  餐飲：<input id="food"><br>
-  交通：<input id="transport"><br>
-  娛樂：<input id="fun"><br>
+  <h2>預算設定</h2>
 
-  <button onclick="send()">送出</button>
+  <!-- 🔥 動態欄位會塞這裡 -->
+  <div id="form"></div>
 
-  <script>
-    let profile;
+  <br>
 
-    async function init() {
-      await liff.init({ liffId: "YOUR_LIFF_ID" });
+  <button onclick="sendData()">送出</button>
 
-      if (!liff.isLoggedIn()) liff.login();
+  <br><br>
 
-      profile = await liff.getProfile();
-    }
+  <div id="status"></div>
 
-    init();
-
-    async function send() {
-      const data = {
-        user_id: profile.userId,
-        food: food.value,
-        transport: transport.value,
-        fun: fun.value
-      };
-
-      await liff.sendMessages([
-        {
-          type: "text",
-          text: "budget|" + JSON.stringify(data)
-        }
-      ]);
-
-      liff.closeWindow();
-    }
-  </script>
 </body>
 </html>
