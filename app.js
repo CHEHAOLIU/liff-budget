@@ -33,10 +33,9 @@ async function loadCategories() {
 
   categories.forEach(c => {
 
-    const col = document.createElement("div");
-
-    // ⭐ 關鍵：加 mb + 不讓撐爆
-    col.className = "col-6 mb-2";
+    // ❌ 刪掉 col-6
+    // const col = document.createElement("div");
+    // col.className = "col-6 mb-2";
 
     const item = document.createElement("div");
     item.className = "category-item";
@@ -61,11 +60,10 @@ async function loadCategories() {
 
     item.appendChild(label);
     item.appendChild(input);
-    col.appendChild(item);
-    container.appendChild(col);
+
+    container.appendChild(item); // ⭐ 直接丟進 grid container
   });
 }
-
 
 // ⭐ 送出預算（改名：submitBudget）
 async function submitBudget() {
