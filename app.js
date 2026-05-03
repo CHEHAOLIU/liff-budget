@@ -24,23 +24,36 @@ init();
 async function loadCategories() {
 
   const res = await fetch("https://line-bot-on-render-combine-one.onrender.com/api/categories");
-  categories = await res.json();
+  const categories = await res.json();
 
   const container = document.getElementById("form");
   container.innerHTML = "";
 
   categories.forEach(c => {
 
+    // 外層 row
+    const row = document.createElement("div");
+    row.style.display = "flex";
+    row.style.alignItems = "center";
+    row.style.marginBottom = "8px";
+    row.style.gap = "10px";
+
+    // 類別文字
     const label = document.createElement("div");
     label.innerText = c;
+    label.style.width = "120px"; // 固定寬度，對齊用
 
+    // 輸入框
     const input = document.createElement("input");
     input.id = c;
     input.type = "number";
     input.placeholder = "輸入金額";
 
-    container.appendChild(label);
-    container.appendChild(input);
+    // 組合
+    row.appendChild(label);
+    row.appendChild(input);
+
+    container.appendChild(row);
   });
 }
 
