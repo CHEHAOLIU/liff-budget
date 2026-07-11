@@ -1,6 +1,7 @@
 let categories = [];
 let profile = null;
 let savedBudgets = {};
+let idToken = null;
 
 console.log("APP JS LOADED");
 
@@ -16,6 +17,12 @@ async function init() {
   }
 
   profile = await liff.getProfile();
+
+  // 取得 LINE 官方簽發的 ID Token
+  idToken = liff.getIDToken();
+
+  console.log("LINE ID Token:", idToken);
+
 
   await loadCategories();
 }
@@ -84,10 +91,10 @@ async function submitBudget() {
   await fetch("https://line-bot-on-render-combine-one-singapore.onrender.com/api/budget", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${idToken}`
     },
     body: JSON.stringify({
-      user_id: profile.userId,
       budgets: budgets
     })
   });
