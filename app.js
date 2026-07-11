@@ -1,5 +1,6 @@
 let categories = [];
 let profile = null;
+let savedBudgets = {};
 
 console.log("APP JS LOADED");
 
