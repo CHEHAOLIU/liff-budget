@@ -25,7 +25,7 @@ init();
 // ⭐ 載入分類 + 建立 UI（兩欄 + 財報風）
 async function loadCategories() {
 
-  const res = await fetch("https://line-bot-on-render-combine-one.onrender.com/api/categories");
+  const res = await fetch("https://line-bot-on-render-combine-one-singapore.onrender.com/api/categories");
   categories = await res.json();
 
   const container = document.getElementById("form");
@@ -78,7 +78,7 @@ async function submitBudget() {
 
   document.getElementById("status").innerText = "送出中...";
 
-  await fetch("https://line-bot-on-render-combine-one.onrender.com/api/budget", {
+  await fetch("https://line-bot-on-render-combine-one-singapore.onrender.com/api/budget", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
