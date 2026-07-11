@@ -46,6 +46,8 @@ async function loadCategories() {
 
     const input = document.createElement("input");
     input.type = "text";
+    input.inputMode = "numeric";   // ⭐ 手機跳數字鍵盤
+    
     input.id = c;
     input.className = "form-control amount-input";
     input.placeholder = "0";
@@ -90,4 +92,27 @@ async function submitBudget() {
   });
 
   document.getElementById("status").innerText = "✅ 已儲存";
+}
+
+
+// ⭐ 更新設定總金額
+function updateTotal(){
+
+  let total = 0;
+
+  document.querySelectorAll(".amount-input")
+    .forEach(input => {
+
+      let value = input.value.replace(/,/g, "");
+
+      if(value){
+        total += Number(value);
+      }
+
+    });
+
+
+  document.getElementById("total").innerText =
+    total.toLocaleString();
+
 }
