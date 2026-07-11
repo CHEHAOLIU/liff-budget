@@ -9,7 +9,7 @@
 #form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px 15px;
+  gap: 10px 8px;
   background: white;
   padding: 10px;
 }
@@ -34,16 +34,19 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 
 /* ⭐ 金額輸入框 */
 .amount-input {
-  width: 70px;
+  width: 60px;
+  padding: 4px;
 
   text-align: right;
   font-family: monospace;
+  font-size: 13px;
 
   flex-shrink: 0;
 }
